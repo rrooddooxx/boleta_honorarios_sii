@@ -1,5 +1,5 @@
 export enum ResultadoBoletaConstants {
-  RESULTADO_MONTO_LABEL = "Monto de la Boleta",
+  RESULTADO_MONTO_LABEL = "Debes hacer la boleta por:",
   RESULTADO_PAGO_LABEL = "Recibes",
   RESULTADO_RETENCION_LABEL = "Retención SII",
 }
