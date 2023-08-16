@@ -80,7 +80,7 @@ export default function Page() {
           />
         </div>
       </div>
-      <div className="my-12 flex justify-center whitespace-pre-wrap">
+      <div className="my-12 flex justify-center text-sm max-sm:text-xs whitespace-break-spaces">
         Desarrollado por{" "}
         <a
           href="https://github.com/wwiiddeeweb"
