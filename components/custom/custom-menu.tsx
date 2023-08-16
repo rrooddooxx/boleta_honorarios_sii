@@ -1,37 +1,32 @@
+import { MenubarLabel } from "@radix-ui/react-menubar";
 import {
   Menubar,
   MenubarContent,
   MenubarItem,
   MenubarMenu,
   MenubarSeparator,
-  MenubarShortcut,
   MenubarTrigger,
 } from "../ui/menubar";
+import { ThemeSwitch } from "./theme-switch";
 
 export const CustomMenu = () => {
   return (
-    <Menubar>
-      <MenubarMenu>
-        <MenubarTrigger className="font-bold">CalcHonorarios 🇨🇱</MenubarTrigger>
-        <MenubarTrigger>Acerca De</MenubarTrigger>
-        <MenubarContent>
-          <MenubarItem>
-            New Tab <MenubarShortcut>⌘T</MenubarShortcut>
-          </MenubarItem>
-          <MenubarItem>New Window</MenubarItem>
-          <MenubarSeparator />
-          <MenubarItem>Share</MenubarItem>
-          <MenubarSeparator />
-          <MenubarItem>Print</MenubarItem>
-        </MenubarContent>
-      </MenubarMenu>
-    </Menubar>
+    <div>
+      <Menubar className="mt-3">
+        <MenubarLabel className="font-bold">CalcHonorarios 🇨🇱</MenubarLabel>
+        <MenubarMenu>
+          <MenubarTrigger>Acerca De</MenubarTrigger>
+          <MenubarContent>
+            <MenubarItem>Desarrollado por Sebastián Kravetz</MenubarItem>
+
+            <MenubarSeparator />
+            <MenubarItem>Corporación NoLineal</MenubarItem>
+          </MenubarContent>
+          <MenubarLabel>
+            <ThemeSwitch />
+          </MenubarLabel>
+        </MenubarMenu>
+      </Menubar>
+    </div>
   );
 };
-
-/* 
-<DollarSign />
-        <CardTitle>Calculador Boletas de Honorarios 🇨🇱</CardTitle>
-        <CardDescription>
-          Porcentajes según Reforma Tributaria SII Chile
-        </CardDescription> */

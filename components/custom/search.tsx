@@ -1,7 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import { retencionValues } from "../../utils/constants";
 import { Input } from "../ui/input";
-import { ModeToggle } from "../ui/theme-toggle";
 import { CustomSelect } from "./custom-select";
 import { CustomSwitch } from "./custom-switch";
 
@@ -34,16 +33,19 @@ export const Search = ({
           value={montoBoleta}
         />
       </div>
-      <CustomSelect
-        valueList={retencionValues}
-        setPorcRetencion={setPorcRetencion}
-      />
-      <CustomSwitch
-        label="Bono Covid"
-        setChecked={setIsBonoCovid}
-        checkedVal={isBonoCovid}
-      />
-      <ModeToggle />
+      <div className="flex items-end">
+        <CustomSelect
+          valueList={retencionValues}
+          setPorcRetencion={setPorcRetencion}
+        />
+      </div>
+      <div className="flex items-end">
+        <CustomSwitch
+          label="Bono Covid"
+          setChecked={setIsBonoCovid}
+          checkedVal={isBonoCovid}
+        />
+      </div>
     </div>
   );
 };

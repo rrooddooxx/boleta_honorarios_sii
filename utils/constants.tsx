@@ -59,3 +59,9 @@ export const valoresBrutosProps: CustomCardProps = {
     montoRetencion: "0",
   },
 };
+
+export enum ThemeConstants {
+  LIGHT_THEME = "light",
+  DARK_THEME = "dark",
+  SYSTEM_THEME = "system",
+}
