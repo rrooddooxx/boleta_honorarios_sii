@@ -1,12 +1,5 @@
 import { MenubarLabel } from "@radix-ui/react-menubar";
-import {
-  Menubar,
-  MenubarContent,
-  MenubarItem,
-  MenubarMenu,
-  MenubarSeparator,
-  MenubarTrigger,
-} from "../ui/menubar";
+import { Menubar, MenubarMenu } from "../ui/menubar";
 import { ThemeSwitch } from "./theme-switch";
 
 export const CustomMenu = () => {
@@ -15,13 +8,13 @@ export const CustomMenu = () => {
       <Menubar className="mt-3">
         <MenubarLabel className="font-bold">CalcHonorarios 🇨🇱</MenubarLabel>
         <MenubarMenu>
-          <MenubarTrigger>Acerca De</MenubarTrigger>
+          {/*           <MenubarTrigger>Acerca De</MenubarTrigger>
           <MenubarContent>
             <MenubarItem>Desarrollado por Sebastián Kravetz</MenubarItem>
 
             <MenubarSeparator />
             <MenubarItem>Corporación NoLineal</MenubarItem>
-          </MenubarContent>
+          </MenubarContent> */}
           <MenubarLabel>
             <ThemeSwitch />
           </MenubarLabel>
