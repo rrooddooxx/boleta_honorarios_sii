@@ -1,6 +1,7 @@
 "use client";
 
 import { Dispatch, SetStateAction } from "react";
+import { BusquedaConstants } from "../../utils/constants";
 import {
   Select,
   SelectContent,
@@ -23,8 +24,8 @@ export const CustomSelect = ({
 }) => {
   return (
     <Select onValueChange={(e) => setPorcRetencion(Number(e))}>
-      <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder={valueList[0].year} />
+      <SelectTrigger className="lg:w-[180px]">
+        <SelectValue placeholder={BusquedaConstants.SELECCIONE_ANIO} />
       </SelectTrigger>
       <SelectContent>
         {valueList &&
@@ -32,7 +33,7 @@ export const CustomSelect = ({
           valueList.map((val, idx) => {
             return (
               <SelectItem value={val.porc.toString()} key={val.year + idx}>
-                {val.year.toString()}
+                {`${val.year.toString()} (${val.porc.toString()}%)`}
               </SelectItem>
             );
           })}

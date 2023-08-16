@@ -9,8 +9,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { InputCopy } from "../ui/input-copy";
 
 export type CustomCardProps = {
   title: string;
@@ -52,7 +52,7 @@ export const CustomCard = ({
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="name">{inputLabel1}</Label>
-              <Input
+              <InputCopy
                 id="name"
                 placeholder={inputLabel1}
                 value={values.montoBoleta}
@@ -61,7 +61,7 @@ export const CustomCard = ({
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="name">{inputLabel2}</Label>
-              <Input
+              <InputCopy
                 id="name"
                 placeholder={inputLabel2}
                 value={values.montoPago}
@@ -70,7 +70,7 @@ export const CustomCard = ({
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="name">{inputLabel3}</Label>
-              <Input
+              <InputCopy
                 id="name"
                 placeholder={inputLabel3}
                 value={values.montoRetencion}
@@ -82,8 +82,10 @@ export const CustomCard = ({
       </CardContent>
       {buttons && (
         <CardFooter className="flex justify-between">
-          <Button variant="outline">Cancel</Button>
-          <Button>Deploy</Button>
+          <Button variant="outline">
+            {(buttons && buttonLabels?.buttonLabel1) || ""}
+          </Button>
+          <Button>{(buttons && buttonLabels?.buttonLabel2) || ""}</Button>
         </CardFooter>
       )}
     </Card>
