@@ -20,7 +20,7 @@ export default function RootLayout({
       <body
         className={`${inter.className} bg-white dark:bg-gradient-to-l dark:from-slate-950 dark:to-slate-900`}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           {children}
         </ThemeProvider>
       </body>

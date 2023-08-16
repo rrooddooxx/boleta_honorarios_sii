@@ -1,9 +1,24 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
+  purge: {
+    enabled: true,
+    content: [
+      "./pages/**/*.{ts,tsx}",
+      "./components/**/*.{ts,tsx}",
+      "./components/custom/*.{ts,tsx}",
+      "./components/ui/*.{ts,tsx}",
+      "./app/**/*.{ts,tsx}",
+    ],
+    options: {
+      safelist: ["dark"],
+    },
+  },
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
+    "./components/custom/*.{ts,tsx}",
+    "./components/ui/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
   ],
   theme: {
