@@ -21,6 +21,7 @@ export enum ResultadoBoletaConstants {
   RESULTADO_MONTO_LABEL = "Debes hacer la boleta por:",
   RESULTADO_PAGO_LABEL = "Recibes:",
   RESULTADO_RETENCION_LABEL = "Retención SII:",
+  RESULTADO_BONO_COVID = "Retención (Sólo 3% Bono Covid):",
 }
 
 export enum TitulosResultadoConstants {
@@ -34,6 +35,7 @@ export const inputLabelsText = {
   inputLabel1: ResultadoBoletaConstants.RESULTADO_MONTO_LABEL,
   inputLabel2: ResultadoBoletaConstants.RESULTADO_PAGO_LABEL,
   inputLabel3: ResultadoBoletaConstants.RESULTADO_RETENCION_LABEL,
+  inputBonoCovid: ResultadoBoletaConstants.RESULTADO_BONO_COVID,
 };
 
 export const valoresLiquidosProps: CustomCardProps = {

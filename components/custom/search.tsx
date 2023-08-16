@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import { retencionValues } from "../../utils/constants";
+import { formatCurrencyCLP, revertFormatCurrency } from "../../utils/currency";
 import { Input } from "../ui/input";
 import { CustomSelect } from "./custom-select";
 import { CustomSwitch } from "./custom-switch";
@@ -9,7 +10,7 @@ export type SearchProps = {
     setMontoBoleta: (amount: string) => void;
     montoBoleta: number;
   };
-  setPorcRetencion: Dispatch<SetStateAction<number>>;
+  setPorcRetencion: Dispatch<SetStateAction<number | null>>;
   bonoCovid: {
     setIsBonoCovid: Dispatch<SetStateAction<boolean>>;
     isBonoCovid: boolean;
@@ -22,18 +23,21 @@ export const Search = ({
   setPorcRetencion,
 }: SearchProps) => {
   return (
-    <div className="grid lg:grid-cols-4 grid-cols-2 gap-4 mt-8">
-      <div className="grid grid-cols-1">
-        <div className="text-sm text-muted-foreground mb-3">
+    <div className="grid lg:grid-cols-3 grid-cols-1 gap-4 mt-8">
+      <div className="grid grid-cols-1 self-end">
+        <div className="max-sm:text-sm text-base text-muted-foreground mb-3">
           Ingresa aquí el monto a calcular:
         </div>
         <Input
           placeholder="Ingresa aquí el monto..."
-          onChange={(e) => setMontoBoleta(e.target.value)}
-          value={montoBoleta}
+          onChange={(e) => setMontoBoleta(revertFormatCurrency(e.target.value))}
+          value={formatCurrencyCLP(montoBoleta)}
         />
       </div>
-      <div className="flex items-end">
+      <div className="grid grid-cols-1 self-end">
+        <div className="max-sm:text-sm text-base text-muted-foreground mb-3">
+          Seleccione el año para el % de retención:
+        </div>
         <CustomSelect
           valueList={retencionValues}
           setPorcRetencion={setPorcRetencion}

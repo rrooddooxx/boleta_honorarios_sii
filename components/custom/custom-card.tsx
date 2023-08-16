@@ -10,6 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
+import { revertFormatCurrency } from "../../utils/currency";
 import { InputCopy } from "../ui/input-copy";
 
 export type CustomCardProps = {
@@ -19,6 +20,7 @@ export type CustomCardProps = {
     inputLabel1: string;
     inputLabel2: string;
     inputLabel3: string;
+    inputBonoCovid: string;
   };
   buttons: boolean;
   buttonLabels?: {
@@ -40,9 +42,9 @@ export const CustomCard = ({
   title,
   values,
 }: CustomCardProps) => {
-  const { inputLabel1, inputLabel2, inputLabel3 } = inputLabels;
+  const { inputLabel1, inputLabel2, inputLabel3, inputBonoCovid } = inputLabels;
   return (
-    <Card className="w-auto">
+    <Card className="w-auto drop-shadow-xl">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{subtitle}</CardDescription>
@@ -57,6 +59,9 @@ export const CustomCard = ({
                 placeholder={inputLabel1}
                 value={values.montoBoleta}
                 readOnly
+                disabled={Boolean(
+                  Number(revertFormatCurrency(values.montoPago)) < 1
+                )}
               />
             </div>
             <div className="flex flex-col space-y-1.5">
@@ -66,6 +71,9 @@ export const CustomCard = ({
                 placeholder={inputLabel2}
                 value={values.montoPago}
                 readOnly
+                disabled={Boolean(
+                  Number(revertFormatCurrency(values.montoPago)) < 1
+                )}
               />
             </div>
             <div className="flex flex-col space-y-1.5">
@@ -75,8 +83,23 @@ export const CustomCard = ({
                 placeholder={inputLabel3}
                 value={values.montoRetencion}
                 readOnly
+                disabled={Boolean(
+                  Number(revertFormatCurrency(values.montoPago)) < 1
+                )}
               />
             </div>
+            {/* <div className="flex flex-col space-y-1.5">
+              <Label htmlFor="name">{inputBonoCovid}</Label>
+              <InputCopy
+                id="name"
+                placeholder={inputBonoCovid}
+                value={values.montoRetencion}
+                readOnly
+                disabled={Boolean(
+                  Number(revertFormatCurrency(values.montoPago)) < 1
+                )}
+              />
+            </div> */}
           </div>
         </form>
       </CardContent>

@@ -6,3 +6,7 @@ export const formatCurrencyCLP = (amount: number) => {
 
   return clp.format(amount);
 };
+
+export const revertFormatCurrency = (amount: string) => {
+  return amount.replace(/\./g, "").replace(/,/g, "").replace(/\$/g, "");
+};

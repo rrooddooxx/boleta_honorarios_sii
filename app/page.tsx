@@ -8,7 +8,7 @@ import { useBoletaCalc } from "../hooks/useBoletaCalc";
 import { valoresBrutosProps, valoresLiquidosProps } from "../utils/constants";
 
 export default function Page() {
-  const [porcRetencion, setPorcRetencion] = useState(0);
+  const [porcRetencion, setPorcRetencion] = useState<number | null>(null);
   const [porcRetencionFinal, setPorcRetencionFinal] = useState(0);
   const [isBonoCovid, setIsBonoCovid] = useState(false);
   const { montoBoleta, setMontoBoleta, calc } = useBoletaCalc();
@@ -31,7 +31,9 @@ export default function Page() {
   );
 
   useEffect(() => {
-    updatePorcRetencion(porcRetencion, isBonoCovid);
+    if (porcRetencion) {
+      updatePorcRetencion(porcRetencion, isBonoCovid);
+    }
   }, [porcRetencion, isBonoCovid, updatePorcRetencion]);
 
   return (
@@ -43,7 +45,19 @@ export default function Page() {
         bonoCovid={{ setIsBonoCovid, isBonoCovid }}
       />
 
-      <div className="mt-4">Porcentaje de Retención: {porcRetencionFinal}%</div>
+      {montoBoleta > 1 && porcRetencion ? (
+        <div className="mt-4 font-bold">
+          <span className="text-xl">💰</span> Porcentaje de Retención:{" "}
+          {porcRetencionFinal}%
+        </div>
+      ) : montoBoleta > 1 ? (
+        <div className="mt-4 max-sm:text-xs text-base font-bold dark:text-red-500 text-red-600 transition-all duration-100">
+          <span className="text-xl max-sm:text-base">⚠️</span> Debe Seleccionar
+          Año de Emisión de la Boleta!
+        </div>
+      ) : (
+        <div></div>
+      )}
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8 mt-8">
         <div className="rounded-lg">
           <CustomCard
@@ -65,6 +79,23 @@ export default function Page() {
             }}
           />
         </div>
+      </div>
+      <div className="my-12 flex justify-center whitespace-pre-wrap">
+        Desarrollado por{" "}
+        <a
+          href="https://github.com/wwiiddeeweb"
+          className="text-gray-500 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-400 drop-shadow-sm"
+        >
+          Sebastián Kravetz (@wiiddeeweb)
+        </a>
+        {", "}
+        para{" "}
+        <a
+          href="https://nolineal.cl"
+          className="text-gray-500 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-400 drop-shadow-sm"
+        >
+          Corporación No Lineal
+        </a>
       </div>
     </div>
   );

@@ -4,18 +4,13 @@ import { ThemeSwitch } from "./theme-switch";
 
 export const CustomMenu = () => {
   return (
-    <div>
-      <Menubar className="mt-3">
-        <MenubarLabel className="font-bold">CalcHonorarios 🇨🇱</MenubarLabel>
+    <div className="drop-shadow-xl">
+      <Menubar className="lg:mt-8 mt-5 flex w-full">
+        <MenubarLabel className="font-bold text-sm lg:text-base !ml-2">
+          CalcHonorarios 🇨🇱
+        </MenubarLabel>
         <MenubarMenu>
-          {/*           <MenubarTrigger>Acerca De</MenubarTrigger>
-          <MenubarContent>
-            <MenubarItem>Desarrollado por Sebastián Kravetz</MenubarItem>
-
-            <MenubarSeparator />
-            <MenubarItem>Corporación NoLineal</MenubarItem>
-          </MenubarContent> */}
-          <MenubarLabel>
+          <MenubarLabel className="!ml-auto !mr-2">
             <ThemeSwitch />
           </MenubarLabel>
         </MenubarMenu>

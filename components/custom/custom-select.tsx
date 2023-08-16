@@ -20,7 +20,7 @@ export const CustomSelect = ({
   setPorcRetencion,
 }: {
   valueList: RetencionValue[];
-  setPorcRetencion: Dispatch<SetStateAction<number>>;
+  setPorcRetencion: Dispatch<SetStateAction<number | null>>;
 }) => {
   return (
     <Select onValueChange={(e) => setPorcRetencion(Number(e))}>

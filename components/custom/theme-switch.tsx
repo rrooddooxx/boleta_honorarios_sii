@@ -32,10 +32,13 @@ export const ThemeSwitch = () => {
     <div className="flex items-center space-x-2">
       <Switch
         id="custom-switch"
+        className="transform scale-75"
         checked={isDark}
         onCheckedChange={(e) => themeHandler(e)}
       />
-      <Label htmlFor="custom-switch">Modo Oscuro</Label>
+      <Label htmlFor="custom-switch" className="text-xs lg:text-sm">
+        Modo Oscuro
+      </Label>
     </div>
   );
 };
