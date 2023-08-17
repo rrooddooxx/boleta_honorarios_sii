@@ -5,9 +5,14 @@ import { CustomCard } from "../components/custom/custom-card";
 import { CustomMenu } from "../components/custom/custom-menu";
 import { Search } from "../components/custom/search";
 import { useBoletaCalc } from "../hooks/useBoletaCalc";
-import { valoresBrutosProps, valoresLiquidosProps } from "../utils/constants";
+import {
+  MOTD,
+  valoresBrutosProps,
+  valoresLiquidosProps,
+} from "../utils/constants";
 
 export default function Page() {
+  console.log(MOTD);
   const [porcRetencion, setPorcRetencion] = useState<number | null>(null);
   const [porcRetencionFinal, setPorcRetencionFinal] = useState(0);
   const [isBonoCovid, setIsBonoCovid] = useState(false);
@@ -24,7 +29,7 @@ export default function Page() {
   const updatePorcRetencion = useCallback(
     (porc: number, toggleBonoCovid: boolean) => {
       return toggleBonoCovid
-        ? setPorcRetencionFinal((val) => val + 3)
+        ? setPorcRetencionFinal(porc + 3)
         : setPorcRetencionFinal(porc);
     },
     []
@@ -80,22 +85,23 @@ export default function Page() {
           />
         </div>
       </div>
-      <div className="my-12 flex justify-center text-sm max-sm:text-xs whitespace-break-spaces">
-        Desarrollado por{" "}
-        <a
-          href="https://github.com/wwiiddeeweb"
-          className="text-gray-500 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-400 drop-shadow-sm"
-        >
-          Sebastián Kravetz (@wiiddeeweb)
-        </a>
-        {", "}
-        para{" "}
-        <a
-          href="https://nolineal.cl"
-          className="text-gray-500 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-400 drop-shadow-sm"
-        >
-          Corporación No Lineal
-        </a>
+      <div className="my-12 flex justify-center text-sm max-sm:text-xs whitespace-normal">
+        <p className="text-center">
+          Desarrollado por{" "}
+          <a
+            href="https://github.com/wwiiddeeweb"
+            className="text-gray-500 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-400 drop-shadow-sm"
+          >
+            Sebastián Kravetz (@wiiddeeweb){" "}
+          </a>
+          para{" "}
+          <a
+            href="https://nolineal.cl"
+            className="text-gray-500 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-400 drop-shadow-sm"
+          >
+            Corporación No Lineal
+          </a>
+        </p>
       </div>
     </div>
   );

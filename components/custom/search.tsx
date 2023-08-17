@@ -17,6 +17,15 @@ export type SearchProps = {
   };
 };
 
+const inputMontoBoletaHandler = (
+  amount: string,
+  setMontoBoleta: (amount: string) => void
+) => {
+  const cleanedNumber = revertFormatCurrency(amount);
+  if (!Number.isSafeInteger(Number(cleanedNumber))) return;
+  setMontoBoleta(cleanedNumber);
+};
+
 export const Search = ({
   boleta: { montoBoleta, setMontoBoleta },
   bonoCovid: { setIsBonoCovid, isBonoCovid },
@@ -30,7 +39,9 @@ export const Search = ({
         </div>
         <Input
           placeholder="Ingresa aquí el monto..."
-          onChange={(e) => setMontoBoleta(revertFormatCurrency(e.target.value))}
+          onChange={(e) =>
+            inputMontoBoletaHandler(e.target.value, setMontoBoleta)
+          }
           value={formatCurrencyCLP(montoBoleta)}
         />
       </div>

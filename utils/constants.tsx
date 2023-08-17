@@ -67,3 +67,10 @@ export enum ThemeConstants {
   DARK_THEME = "dark",
   SYSTEM_THEME = "system",
 }
+
+export const MOTD = `${"-".repeat(60)}
+
+  CALCULADORA BOLETAS DE HONORARIOS (SII, CHILE)  
+  DESARROLLADA POR SEBASTIÁN KRAVETZ (@wwiiddeeweb) 🏴‍☠️
+  
+${"-".repeat(60)}`;
