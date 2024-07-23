@@ -1,6 +1,7 @@
 ## Calculadora Boletas Honorarios (SII, CHILE)
 
 Desarrollado por Sebastián Kravetz (@rrooddooxx)
+
 Contacto: sebastiankravetz [ @ ] icloud . com
 
 ## Stack Utilizado
