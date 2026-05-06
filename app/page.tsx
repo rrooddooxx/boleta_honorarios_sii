@@ -89,17 +89,10 @@ export default function Page() {
         <p className="text-center">
           Desarrollado por{" "}
           <a
-            href="https://github.com/wwiiddeeweb"
+            href="https://github.com/rrooddooxx"
             className="text-gray-500 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-400 drop-shadow-sm"
           >
-            Sebastián Kravetz (@wiiddeeweb){" "}
-          </a>
-          para{" "}
-          <a
-            href="https://nolineal.cl"
-            className="text-gray-500 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-400 drop-shadow-sm"
-          >
-            Corporación No Lineal
+            Sebastián Kravetz (@rrooddooxx)
           </a>
         </p>
       </div>
